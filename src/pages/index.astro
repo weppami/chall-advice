@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Frontend Mentor | Advice generator app">
+  <main
+    class="flex h-screen bg-dark-blue px-4 font-manrope"
+    x-data="{advice:'',
+      getAdvice() {
+        fetch('https://api.adviceslip.com/advice')
+            .then((response) => response.json())
+            .then((json) => this.advice = json.slip);
+    }}"
+    x-init="getAdvice()"
+  >
+    <div class="m-auto w-full md:w-2/5">
+      <header
+        class="text relative h-auto items-center justify-center rounded-xl bg-dark-gray p-4 md:p-8"
+      >
+        <div class="flex flex-col py-6 text-center">
+          <span
+            class="text-xs tracking-widest text-green md:text-lg"
+            x-text="'A D V I C E   # '+advice.id"
+          >
+          </span>
+          <h1
+            class="mt-6 mb-6 text-2xl font-bold leading-normal text-cyan"
+            x-text="'“'+advice.advice+'”'"
+          >
+          </h1>
+          <picture>
+            <source
+              media="(max-width:768px)"
+              srcset="/src/assets/img/pattern-divider-mobile.svg"
+            />
+            <source
+              media="(min-width:900px)"
+              srcset="/src/assets/img/pattern-divider-desktop.svg"
+            />
+            <img
+              class="mx-auto mb-5 block"
+              src="/src/assets/img/pattern-divider-mobile.svg"
+              alt="divider picture"
+            />
+          </picture>
+
+          <button
+            class="border-1 absolute -bottom-8 left-1/2 -translate-x-1/2 transform rounded-full border border-green bg-green p-5 outline-0 hover:shadow-[#52ffa8_0px_7px_29px_0px]"
+            @click="getAdvice"
+          >
+            <div class="mx-auto">
+              <svg
+                width="24"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                class="z-10"
+              >
+                <path
+                  d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"
+                  fill="#202733"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </header>
+    </div>
+  </main>
+</Layout>
