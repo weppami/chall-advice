@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [My Solution](https://www.frontendmentor.io/solutions/advice-challange-using-tailwind-css-and-alpine-js-ujnYwrQFV5)
 - Live Site URL: [Live site](https://polite-kheer-24ed87.netlify.app/)
 
 ## My process
